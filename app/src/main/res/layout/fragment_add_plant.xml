@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/plantNameField"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:hint="Enter a new plant" />
+
+    <EditText
+        android:id="@+id/plantDescriptionField"
+        android:layout_width="match_parent"
+        android:layout_height="105dp"
+        android:layout_marginTop="20dp"
+        android:ems="3"
+        android:gravity="start|top"
+        android:hint="Enter description for the plant"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/plantTypeField"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="20dp"
+        android:gravity="start|top"
+        android:hint="Enter plant type"/>
+
+    <EditText
+        android:id="@+id/wateringFrequency"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="20dp"
+        android:ems="5"
+        android:gravity="start|top"
+        android:hint="Enter Watering Frequency"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/addPlantBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="Add New Plant" />
+
+</LinearLayout>

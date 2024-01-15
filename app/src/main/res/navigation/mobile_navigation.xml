@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.sunitcb.gardenmate.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home"></fragment>
+
+    <fragment
+        android:id="@+id/nav_garden_logs"
+        android:name="com.sunitcb.gardenmate.ui.gardenLogs.GardenLogsFragment"
+        android:label="@string/menu_garden_logs"
+        tools:layout="@layout/fragment_garden_logs">
+
+        <action
+            android:id="@+id/action_nav_garden_logs_to_nav_plant_details"
+            app:destination="@id/nav_plant_details" />
+        <action
+            android:id="@+id/action_nav_garden_logs_to_nav_add_plant"
+            app:destination="@id/nav_add_plant" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_plant_details"
+        android:name="com.sunitcb.gardenmate.ui.plantDetails.PlantDetailsFragment"
+        android:label="@string/menu_plant_details"
+        tools:layout="@layout/fragment_plant_details">
+        <argument
+            android:name="plantId"
+            app:argType="long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_add_plant"
+        android:name="com.sunitcb.gardenmate.ui.addPlant.AddPlantFragment"
+        android:label="@string/menu_plant_details"
+        tools:layout="@layout/fragment_add_plant">
+        <action
+            android:id="@+id/action_nav_add_plant_to_nav_garden_logs"
+            app:destination="@id/nav_garden_logs" />
+    </fragment>
+
+</navigation>
