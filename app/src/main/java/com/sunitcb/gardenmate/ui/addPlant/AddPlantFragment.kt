@@ -18,6 +18,7 @@ import com.sunitcb.gardenmate.databinding.FragmentPlantDetailsBinding
 import com.sunitcb.gardenmate.entities.Plants
 import com.sunitcb.gardenmate.ui.gardenLogs.GardenLogsFragmentDirections
 import com.sunitcb.gardenmate.ui.plantDetails.PlantDetailsViewModel
+import java.time.LocalDate
 import kotlin.math.log
 
 class AddPlantFragment : Fragment() {
@@ -88,7 +89,7 @@ class AddPlantFragment : Fragment() {
     ): Boolean {
         var isSuccess: Boolean = false;
         try {
-            viewModel.insert(Plants(0, plantName, plantDescription, plantType, wateringFrequency))
+            viewModel.insert(Plants(0, plantName, plantDescription, plantType, wateringFrequency, LocalDate.now().toString()))
             isSuccess = true
         } catch (ex: Exception) {
             println("Exception in adding new plant: " + ex.stackTrace)

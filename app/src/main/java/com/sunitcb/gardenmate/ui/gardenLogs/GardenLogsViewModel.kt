@@ -1,6 +1,7 @@
 package com.sunitcb.gardenmate.ui.gardenLogs
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -17,5 +18,15 @@ class GardenLogsViewModel(application: Application) : AndroidViewModel(applicati
         val plantDao = PlantDatabase.getDatabase(application).plantDao()
         repository = PlantRepository(plantDao)
         allPlants = repository.allPlants
+    }
+
+    fun deletePlant(plant: Plants) {
+        viewModelScope.launch {
+            try{
+                val result = repository.delete(plant)
+            } catch (ex: Exception){
+                Log.e("GardenLogsViewModel", "Error deleting plant.")
+            }
+        }
     }
 }

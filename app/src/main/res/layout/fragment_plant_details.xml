@@ -52,7 +52,7 @@
                     <TextView
                         android:id="@+id/plantDescriptionTxtView"
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
                         android:ems="3"
                         android:gravity="start|top"/>
@@ -82,6 +82,23 @@
 
                     <TextView
                         android:id="@+id/wateringFrequencyTxtView"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="20dp"
+                        android:ems="5"
+                        android:gravity="start|top"/>
+
+                    <TextView
+                        android:id="@+id/plantedDateLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="WATERING FREQUENCY:"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+
+                    <TextView
+                        android:id="@+id/plantedDateTxtView"
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
                         android:layout_marginTop="20dp"

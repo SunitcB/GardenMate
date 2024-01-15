@@ -46,7 +46,6 @@ class PlantDetailsFragment : Fragment() {
         activity.toggle.setToolbarNavigationClickListener {
             activity.onBackPressed()
         }
-
         return root
     }
 
@@ -60,5 +59,6 @@ class PlantDetailsFragment : Fragment() {
         binding.plantDescriptionTxtView.text = plant?.description
         binding.plantTypeTxtView.text = plant?.type
         binding.wateringFrequencyTxtView.text = plant?.wateringFrequency.toString()
+        binding.plantedDateTxtView.text = plant?.plantedDate
     }
 }

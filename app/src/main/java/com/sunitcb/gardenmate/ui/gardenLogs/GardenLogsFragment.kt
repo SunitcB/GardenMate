@@ -1,11 +1,13 @@
 package com.sunitcb.gardenmate.ui.gardenLogs
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -38,7 +40,7 @@ class GardenLogsFragment : Fragment() {
 
         var recyclerView = binding.recipeRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        gardenLogAdapter = GardenLogAdapter(this.requireContext()) { plant ->
+        gardenLogAdapter = GardenLogAdapter(this.requireContext(), { plant: Plants ->
             val itemAction = plant?.id?.let {
                 GardenLogsFragmentDirections.actionNavGardenLogsToNavPlantDetails(
                     it
@@ -47,7 +49,30 @@ class GardenLogsFragment : Fragment() {
             if (itemAction != null) {
                 findNavController().navigate(itemAction)
             }
-        }
+        }, { plant: Plants ->
+
+            AlertDialog.Builder(context).setTitle("Delete Item")
+                .setMessage("Are you sure you want to delete this item?")
+                .setPositiveButton("Yes") { dialog, which ->
+                    plant?.id?.let { viewModel.deletePlant(plant) }
+                    dialog.dismiss()
+                    view?.let {
+                        Snackbar.make(
+                            it,
+                            "${plant?.name} has been deleted successfully.",
+                            Snackbar.LENGTH_SHORT
+                        )
+                    }
+                }
+                .setNegativeButton("No") { dialog, which ->
+                    dialog.dismiss()
+                }
+                .create()
+                .show()
+
+
+
+        })
 
         recyclerView.adapter = gardenLogAdapter
 
