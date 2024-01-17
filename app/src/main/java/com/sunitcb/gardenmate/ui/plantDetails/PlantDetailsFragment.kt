@@ -35,7 +35,7 @@ class PlantDetailsFragment : Fragment() {
 
         plantId = arguments?.getLong("plantId") ?: 0L
         viewModel = ViewModelProvider(this).get(PlantDetailsViewModel::class.java)
-        viewModel.getPlantById(plantId).observe(viewLifecycleOwner, Observer { plant ->
+        viewModel.getPlantById(plantId)?.observe(viewLifecycleOwner, Observer { plant ->
             plant?.let { displayPlantDetails(plant, binding) }
         })
 
